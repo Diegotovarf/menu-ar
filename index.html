@@ -39,21 +39,24 @@
         <button onclick="openAR()">View Plant in AR</button>
     </div>
 
+    <!-- Load A-Frame first -->
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+
+    <!-- Load AR.js after A-Frame -->
+    <script src="https://cdn.rawgit.com/jeromeetienne/ar.js/1.7.2/aframe/build/aframe-ar.min.js"></script>
+
     <!-- AR.js scene for markerless AR -->
     <a-scene embedded arjs="sourceType: webcam; trackingMethod: best;" id="ar-scene">
         <a-assets>
-            <!-- Reference the uploaded plant.glb file -->
+            <!-- Reference the plant.GLB file, which you'll upload to the same folder -->
             <a-asset-item id="plantModel" src="plant.GLB"></a-asset-item>
         </a-assets>
 
-        <!-- Position and scale the .glb model in the scene -->
+        <!-- Display the .glb model in the AR scene -->
         <a-entity gltf-model="#plantModel" position="0 0 -5" scale="0.5 0.5 0.5"></a-entity>
 
         <a-entity camera></a-entity>
     </a-scene>
-
-    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
-    <script src="https://cdn.rawgit.com/jeromeetienne/ar.js/1.7.2/aframe/build/aframe-ar.min.js"></script>
 
     <script>
         function openAR() {
