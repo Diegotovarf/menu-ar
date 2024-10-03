@@ -1,1 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Markerless AR with GLB Model</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
 
+        #menu {
+            display: block;
+            padding: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        a-scene {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to Our Menu</h1>
+    <div id="menu">
+        <p>Click the button below to view the 3D plant in AR!</p>
+        <button onclick="openAR()">View Plant in AR</button>
+    </div>
+
+    <!-- AR.js scene for markerless AR -->
+    <a-scene embedded arjs="sourceType: webcam; trackingMethod: best;" id="ar-scene">
+        <a-assets>
+            <!-- Reference the uploaded plant.glb file -->
+            <a-asset-item id="plantModel" src="plant.glb"></a-asset-item>
+        </a-assets>
+
+        <!-- Position and scale the .glb model in the scene -->
+        <a-entity gltf-model="#plantModel" position="0 0 -5" scale="0.5 0.5 0.5"></a-entity>
+
+        <a-entity camera></a-entity>
+    </a-scene>
+
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://cdn.rawgit.com/jeromeetienne/ar.js/1.7.2/aframe/build/aframe-ar.min.js"></script>
+
+    <script>
+        function openAR() {
+            // Hide the menu and show the AR scene
+            document.getElementById('menu').style.display = 'none';
+            document.getElementById('ar-scene').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
