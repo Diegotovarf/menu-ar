@@ -134,7 +134,7 @@
 
     <!-- Three.js, AR.js, and GLTFLoader libraries -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js/three.js/build/ar.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js/aframe/build/aframe-ar.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
 
     <!-- JavaScript for handling AR and 3D model -->
@@ -173,7 +173,7 @@
             document.getElementById('scene-container').appendChild(renderer.domElement);
 
             // Initialize AR.js
-            arToolkitSource = new THREEx.ArToolkitSource({
+            arToolkitSource = new ARjs.Source({
                 sourceType: 'webcam'
             });
 
@@ -183,8 +183,8 @@
             });
 
             // Initialize AR.js context
-            arToolkitContext = new THREEx.ArToolkitContext({
-                cameraParametersUrl: 'https://cdn.jsdelivr.net/gh/AR-js-org/AR.js/three.js/data/camera_para.dat',
+            arToolkitContext = new ARjs.Context({
+                cameraParametersUrl: 'https://cdn.jsdelivr.net/gh/AR-js-org/AR.js/aframe/build/data/camera_para.dat',
                 detectionMode: 'mono'
             });
 
