@@ -132,7 +132,7 @@
         <div id="scene-container"></div>
     </div>
 
-    <!-- Three.js library -->
+    <!-- Three.js and AR.js libraries -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js/three.js/build/ar.js"></script>
 
@@ -145,7 +145,10 @@
             document.getElementById('menu-container').style.display = 'none';
             document.getElementById('ar-container').style.display = 'block'; // Show the AR scene
 
-            initAR(); // Initialize the AR scene
+            // Initialize AR scene only once
+            if (!arToolkitSource) {
+                initAR();
+            }
         }
 
         function initAR() {
