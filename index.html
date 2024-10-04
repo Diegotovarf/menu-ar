@@ -48,7 +48,7 @@
             width: 100%;
             height: 100%;
             z-index: 1000;
-            background-color: black; /* Ensures no elements behind are visible */
+            background-color: black;
         }
         #close-ar {
             position: absolute;
@@ -144,14 +144,19 @@
             // Hide the menu and show the AR container
             document.getElementById('menu-container').style.display = 'none';
             document.getElementById('ar-container').style.display = 'block'; // Show the AR scene
+            console.log("AR button clicked, initializing AR...");
 
-            // Initialize AR scene only once
             if (!arToolkitSource) {
-                initAR();
+                initAR(); // Initialize the AR scene
+            } else {
+                arToolkitSource.domElement.play(); // Resume camera
+                console.log("AR scene already initialized, resuming camera.");
             }
         }
 
         function initAR() {
+            console.log("Initializing AR...");
+
             // Initialize Three.js scene
             scene = new THREE.Scene();
 
@@ -172,7 +177,16 @@
             });
 
             arToolkitSource.init(function onReady() {
+                console.log("Camera feed initialized.");
                 onResize();
+            });
+
+            arToolkitSource.domElement.addEventListener('loadedmetadata', function() {
+                console.log("Camera feed metadata loaded.");
+            });
+
+            arToolkitSource.domElement.addEventListener('error', function() {
+                console.error("Error accessing the camera feed.");
             });
 
             // Initialize AR.js context
@@ -183,6 +197,7 @@
 
             arToolkitContext.init(function onCompleted() {
                 camera.projectionMatrix.copy(arToolkitContext.getProjectionMatrix());
+                console.log("AR.js context initialized.");
             });
 
             // Handle resizing
@@ -220,10 +235,12 @@
             // Hide the AR container and show the menu again
             document.getElementById('ar-container').style.display = 'none'; // Hide AR scene
             document.getElementById('menu-container').style.display = 'block'; // Show the menu again
+            console.log("AR closed.");
 
-            // Clean up Three.js scene
-            if (renderer) {
-                renderer.dispose();
+            // Pause camera feed when AR is closed
+            if (arToolkitSource) {
+                arToolkitSource.domElement.pause();
+                console.log("Camera feed paused.");
             }
         }
     </script>
