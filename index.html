@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ver Modelo 3D</title>
+  <title>Ver Modelos 3D</title>
   <script src='https://aframe.io/releases/0.9.2/aframe.min.js'></script>
   <script src="https://raw.githack.com/jeromeetienne/AR.js/master/aframe/build/aframe-ar.min.js"></script>
   <script src="https://raw.githack.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
@@ -12,18 +12,70 @@
       margin: 0;
       overflow: hidden;
     }
+    #controls {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      z-index: 1;
+    }
+    button {
+      padding: 10px 20px;
+      margin: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
   </style>
 </head>
 <body>
+  <div id="controls">
+    <button onclick="loadModel('box')">Ver Cubo</button>
+    <button onclick="loadModel('sphere')">Ver Esfera</button>
+    <button onclick="loadModel('cylinder')">Ver Cilindro</button>
+    <button onclick="loadModel('cone')">Ver Cono</button>
+    <button onclick="loadModel('torus')">Ver Toro</button>
+  </div>
+
   <a-scene embedded arjs='sourceType: webcam; debugUIEnabled: false;'>
     <a-marker preset='hiro'>
-      <!-- Cambia la URL del modelo con la ruta correcta a tu archivo GLB -->
-      <a-entity gltf-model="url(https://Diegotovarf.github.io/mi-proyecto/menu-ar/assets/plant.GLB)" 
-                scale="0.5 0.5 0.5" 
-                rotation="0 0 0">
-      </a-entity>
+      <!-- Aquí cargamos dinámicamente el modelo seleccionado -->
+      <a-entity id="model" scale="1 1 1" rotation="0 0 0"></a-entity>
     </a-marker>
     <a-entity camera></a-entity>
   </a-scene>
+
+  <script>
+    function loadModel(modelName) {
+      var modelEntity = document.getElementById('model');
+
+      // Limpia atributos anteriores
+      modelEntity.removeAttribute('gltf-model');
+      modelEntity.removeAttribute('geometry');
+      modelEntity.removeAttribute('material');
+
+      if (modelName === 'box') {
+        modelEntity.setAttribute('geometry', 'primitive: box');
+        modelEntity.setAttribute('material', 'color: red');
+      } else if (modelName === 'sphere') {
+        modelEntity.setAttribute('geometry', 'primitive: sphere');
+        modelEntity.setAttribute('material', 'color: blue');
+      } else if (modelName === 'cylinder') {
+        modelEntity.setAttribute('geometry', 'primitive: cylinder');
+        modelEntity.setAttribute('material', 'color: green');
+      } else if (modelName === 'cone') {
+        modelEntity.setAttribute('geometry', 'primitive: cone');
+        modelEntity.setAttribute('material', 'color: yellow');
+      } else if (modelName === 'torus') {
+        modelEntity.setAttribute('geometry', 'primitive: torus');
+        modelEntity.setAttribute('material', 'color: purple');
+      }
+    }
+  </script>
 </body>
 </html>
