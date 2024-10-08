@@ -32,7 +32,7 @@
       background-color: #45a049;
     }
     #ar-container {
-      display: none; /* Oculta la cámara inicialmente */
+      display: none; /* Oculta el contenedor inicialmente */
       position: absolute;
       top: 0;
       left: 0;
@@ -53,49 +53,72 @@
     <button onclick="loadModel('torus')">Ver Toro</button>
   </div>
 
-  <div id="ar-container">
-    <a-scene embedded arjs='sourceType: webcam; debugUIEnabled: false;' id="ar-scene">
-      <a-marker preset='hiro'>
-        <a-entity id="model" scale="1 1 1" rotation="0 0 0"></a-entity>
-      </a-marker>
-      <a-entity camera></a-entity>
-    </a-scene>
-  </div>
+  <div id="ar-container"></div>
 
   <script>
+    let arScene;
+
     function startAR() {
-      // Mostrar el contenedor de AR y activar la cámara
+      if (!arScene) {
+        // Crear la escena AR solo cuando se presiona el botón "Ver"
+        arScene = document.createElement('a-scene');
+        arScene.setAttribute('embedded', '');
+        arScene.setAttribute('arjs', 'sourceType: webcam; debugUIEnabled: false;');
+        
+        // Crear el marcador
+        let marker = document.createElement('a-marker');
+        marker.setAttribute('preset', 'hiro');
+        
+        // Crear la entidad para el modelo
+        let modelEntity = document.createElement('a-entity');
+        modelEntity.setAttribute('id', 'model');
+        modelEntity.setAttribute('scale', '1 1 1');
+        marker.appendChild(modelEntity);
+        
+        // Añadir el marcador y la cámara a la escena
+        arScene.appendChild(marker);
+        let camera = document.createElement('a-entity');
+        camera.setAttribute('camera', '');
+        arScene.appendChild(camera);
+        
+        // Añadir la escena al contenedor
+        document.getElementById('ar-container').appendChild(arScene);
+      }
+      // Mostrar el contenedor de AR
       document.getElementById('ar-container').style.display = 'block';
     }
 
     function stopAR() {
-      // Ocultar el contenedor de AR y desactivar la cámara
+      // Ocultar el contenedor de AR y detener la cámara
       document.getElementById('ar-container').style.display = 'none';
     }
 
     function loadModel(modelName) {
       var modelEntity = document.getElementById('model');
 
-      // Limpia atributos anteriores
-      modelEntity.removeAttribute('gltf-model');
-      modelEntity.removeAttribute('geometry');
-      modelEntity.removeAttribute('material');
+      if (modelEntity) {
+        // Limpia atributos anteriores
+        modelEntity.removeAttribute('gltf-model');
+        modelEntity.removeAttribute('geometry');
+        modelEntity.removeAttribute('material');
 
-      if (modelName === 'box') {
-        modelEntity.setAttribute('geometry', 'primitive: box');
-        modelEntity.setAttribute('material', 'color: red');
-      } else if (modelName === 'sphere') {
-        modelEntity.setAttribute('geometry', 'primitive: sphere');
-        modelEntity.setAttribute('material', 'color: blue');
-      } else if (modelName === 'cylinder') {
-        modelEntity.setAttribute('geometry', 'primitive: cylinder');
-        modelEntity.setAttribute('material', 'color: green');
-      } else if (modelName === 'cone') {
-        modelEntity.setAttribute('geometry', 'primitive: cone');
-        modelEntity.setAttribute('material', 'color: yellow');
-      } else if (modelName === 'torus') {
-        modelEntity.setAttribute('geometry', 'primitive: torus');
-        modelEntity.setAttribute('material', 'color: purple');
+        // Cargar el modelo correspondiente
+        if (modelName === 'box') {
+          modelEntity.setAttribute('geometry', 'primitive: box');
+          modelEntity.setAttribute('material', 'color: red');
+        } else if (modelName === 'sphere') {
+          modelEntity.setAttribute('geometry', 'primitive: sphere');
+          modelEntity.setAttribute('material', 'color: blue');
+        } else if (modelName === 'cylinder') {
+          modelEntity.setAttribute('geometry', 'primitive: cylinder');
+          modelEntity.setAttribute('material', 'color: green');
+        } else if (modelName === 'cone') {
+          modelEntity.setAttribute('geometry', 'primitive: cone');
+          modelEntity.setAttribute('material', 'color: yellow');
+        } else if (modelName === 'torus') {
+          modelEntity.setAttribute('geometry', 'primitive: torus');
+          modelEntity.setAttribute('material', 'color: purple');
+        }
       }
     }
   </script>
