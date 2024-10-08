@@ -38,7 +38,7 @@
       background-color: #45a049;
     }
     #ar-container {
-      display: none; /* Oculta el contenedor inicialmente */
+      display: none;
       position: absolute;
       top: 0;
       left: 0;
@@ -91,54 +91,44 @@
   </div>
 
   <div id="ar-container"></div>
-  <button id="volver" onclick="volverMenu()">Volver</button> <!-- Botón para cerrar AR -->
+  <button id="volver" onclick="volverMenu()">Volver</button>
 
   <script>
     let arScene;
 
     function verModelo(modelName) {
-      // Ocultar el menú y mostrar el contenedor AR y el botón "Volver"
       document.getElementById('menu').style.display = 'none';
       document.getElementById('volver').style.display = 'block';
 
       if (!arScene) {
-        // Crear la escena AR solo cuando se presiona un botón "Ver"
         arScene = document.createElement('a-scene');
         arScene.setAttribute('embedded', '');
         arScene.setAttribute('arjs', 'sourceType: webcam; debugUIEnabled: false;');
-        
-        // Crear el marcador
+
         let marker = document.createElement('a-marker');
         marker.setAttribute('preset', 'hiro');
-        
-        // Crear la entidad para el modelo
+
         let modelEntity = document.createElement('a-entity');
         modelEntity.setAttribute('id', 'model');
         modelEntity.setAttribute('scale', '1 1 1');
         marker.appendChild(modelEntity);
-        
-        // Añadir el marcador y la cámara a la escena
+
         arScene.appendChild(marker);
         let camera = document.createElement('a-entity');
         camera.setAttribute('camera', '');
         arScene.appendChild(camera);
-        
-        // Añadir la escena al contenedor
+
         document.getElementById('ar-container').appendChild(arScene);
       }
 
-      // Mostrar el contenedor de AR
       document.getElementById('ar-container').style.display = 'block';
 
-      // Cargar el modelo correspondiente
       var modelEntity = document.getElementById('model');
       if (modelEntity) {
-        // Limpia atributos anteriores
         modelEntity.removeAttribute('gltf-model');
         modelEntity.removeAttribute('geometry');
         modelEntity.removeAttribute('material');
 
-        // Cargar el modelo según el platillo
         if (modelName === 'box') {
           modelEntity.setAttribute('geometry', 'primitive: box');
           modelEntity.setAttribute('material', 'color: red');
@@ -159,10 +149,14 @@
     }
 
     function volverMenu() {
-      // Ocultar la escena AR y mostrar el menú de nuevo
       document.getElementById('ar-container').style.display = 'none';
       document.getElementById('menu').style.display = 'block';
       document.getElementById('volver').style.display = 'none';
+
+      if (arScene) {
+        arScene.parentNode.removeChild(arScene);  // Eliminar la escena AR
+        arScene = null;  // Reiniciar la variable
+      }
     }
   </script>
 
