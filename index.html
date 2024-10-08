@@ -4,7 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menú de Platos con AR</title>
+    <title>Menú Parrilla con AR</title>
+
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lobster&family=Playfair+Display:wght@700&family=Georgia&display=swap">
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -15,54 +18,71 @@
 
     <style>
         body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #f4f4f9;
-            color: #333;
+            font-family: 'Georgia', serif;
+            background-image: url('https://cdn.pixabay.com/photo/2017/07/22/20/23/chalkboard-2528807_1280.jpg');
+            background-size: cover;
+            color: white;
         }
 
         .menu-title {
-            margin-top: 30px;
+            font-family: 'Lobster', cursive;
+            font-size: 60px;
             text-align: center;
-            font-size: 42px;
-            font-weight: 700;
-            color: #2c3e50;
+            margin-top: 20px;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 5px;
         }
 
-        .card {
-            border: none;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            margin-bottom: 30px;
-        }
-
-        .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-        }
-
-        .card-body {
-            padding: 20px;
+        .subtitle {
+            font-family: 'Playfair Display', serif;
             text-align: center;
+            font-size: 24px;
+            margin-bottom: 40px;
+            color: #f39c12;
         }
 
-        .dish-name {
-            font-size: 24px;
-            font-weight: 600;
-            color: #34495e;
+        .menu-section {
+            margin: 50px 0;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
             margin-bottom: 15px;
+            border-bottom: 2px solid white;
+            display: inline-block;
+        }
+
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .menu-item-name {
+            font-size: 18px;
+        }
+
+        .menu-item-price {
+            font-size: 18px;
+        }
+
+        .menu-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
         }
 
         .btn-ver {
             background-color: #e74c3c;
             color: white;
-            padding: 10px 20px;
-            border-radius: 50px;
-            font-size: 16px;
-            font-weight: 500;
+            padding: 5px 15px;
+            border-radius: 5px;
+            font-size: 14px;
+            border: none;
+            cursor: pointer;
             transition: background-color 0.3s ease;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
         .btn-ver:hover {
@@ -78,7 +98,7 @@
             width: 100%;
             height: 100%;
             z-index: 1000;
-            background-color: rgba(0, 0, 0, 0.85);
+            background-color: rgba(0, 0, 0, 0.9);
         }
 
         #close-ar {
@@ -95,19 +115,27 @@
             border-radius: 10px;
         }
 
-        /* Additional Responsive Adjustments */
-        @media (max-width: 768px) {
-            .menu-title {
-                font-size: 32px;
+        /* Responsive layout for images */
+        @media (min-width: 992px) {
+            .menu-with-image {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
             }
 
-            .dish-name {
-                font-size: 20px;
+            .menu-content {
+                width: 60%;
             }
 
-            .btn-ver {
-                padding: 8px 15px;
-                font-size: 14px;
+            .menu-image {
+                width: 35%;
+            }
+        }
+
+        /* Adjustments for smaller devices */
+        @media (max-width: 991px) {
+            .menu-image {
+                margin: 20px 0;
             }
         }
     </style>
@@ -116,84 +144,94 @@
 <body>
 
     <!-- Menu title -->
-    <div class="container" id="menu-container">
-        <h1 class="menu-title">Menú de Platos</h1>
+    <h1 class="menu-title">Parrilla</h1>
+    <p class="subtitle">Entre Amigos</p>
 
-        <!-- Menu items -->
-        <div class="row justify-content-center">
-            <!-- Dish 1 -->
-            <div class="col-lg-4 col-md-6">
-                <div class="card">
-                    <div class="card-body">
-                        <span class="dish-name">Ensalada César</span>
-                        <button class="btn btn-ver" onclick="showAR()">VER</button>
-                    </div>
+    <!-- Carne de Ternera Section -->
+    <div class="container menu-section">
+        <div class="menu-with-image">
+            <div class="menu-content">
+                <h2 class="section-title">Carne de Ternera</h2>
+                <div class="menu-item">
+                    <span class="menu-item-name">Con papas fritas</span>
+                    <span class="menu-item-price">€ 7</span>
+                    <button class="btn-ver" onclick="showAR('assets/ternera.glb')">VER</button>
+                </div>
+                <div class="menu-item">
+                    <span class="menu-item-name">Con ensaladilla</span>
+                    <span class="menu-item-price">€ 8</span>
+                    <button class="btn-ver" onclick="showAR('assets/ternera.glb')">VER</button>
                 </div>
             </div>
-
-            <!-- Dish 2 -->
-            <div class="col-lg-4 col-md-6">
-                <div class="card">
-                    <div class="card-body">
-                        <span class="dish-name">Pollo a la Parrilla</span>
-                        <button class="btn btn-ver" onclick="showAR()">VER</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Dish 3 -->
-            <div class="col-lg-4 col-md-6">
-                <div class="card">
-                    <div class="card-body">
-                        <span class="dish-name">Pizza Margarita</span>
-                        <button class="btn btn-ver" onclick="showAR()">VER</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Dish 4 -->
-            <div class="col-lg-4 col-md-6">
-                <div class="card">
-                    <div class="card-body">
-                        <span class="dish-name">Hamburguesa Clásica</span>
-                        <button class="btn btn-ver" onclick="showAR()">VER</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Dish 5 -->
-            <div class="col-lg-4 col-md-6">
-                <div class="card">
-                    <div class="card-body">
-                        <span class="dish-name">Pasta Alfredo</span>
-                        <button class="btn btn-ver" onclick="showAR()">VER</button>
-                    </div>
-                </div>
-            </div>
+            <img src="https://via.placeholder.com/300x200" alt="Carne de Ternera" class="menu-image">
         </div>
     </div>
 
-    <!-- AR container (initially hidden) -->
+    <!-- Carne de Cerdo Section -->
+    <div class="container menu-section">
+        <div class="menu-with-image">
+            <div class="menu-content">
+                <h2 class="section-title">Carne de Cerdo</h2>
+                <div class="menu-item">
+                    <span class="menu-item-name">Costilla</span>
+                    <span class="menu-item-price">€ 12</span>
+                    <button class="btn-ver" onclick="showAR('assets/cerdo.glb')">VER</button>
+                </div>
+                <div class="menu-item">
+                    <span class="menu-item-name">Chuletas</span>
+                    <span class="menu-item-price">€ 16</span>
+                    <button class="btn-ver" onclick="showAR('assets/cerdo.glb')">VER</button>
+                </div>
+            </div>
+            <img src="https://via.placeholder.com/300x200" alt="Carne de Cerdo" class="menu-image">
+        </div>
+    </div>
+
+    <!-- Carne de Pollo Section -->
+    <div class="container menu-section">
+        <div class="menu-with-image">
+            <div class="menu-content">
+                <h2 class="section-title">Carne de Pollo</h2>
+                <div class="menu-item">
+                    <span class="menu-item-name">Pechuga</span>
+                    <span class="menu-item-price">€ 17</span>
+                    <button class="btn-ver" onclick="showAR('assets/pollo.glb')">VER</button>
+                </div>
+                <div class="menu-item">
+                    <span class="menu-item-name">Trasero</span>
+                    <span class="menu-item-price">€ 8</span>
+                    <button class="btn-ver" onclick="showAR('assets/pollo.glb')">VER</button>
+                </div>
+            </div>
+            <img src="https://via.placeholder.com/300x200" alt="Carne de Pollo" class="menu-image">
+        </div>
+    </div>
+
+    <!-- AR container -->
     <div id="ar-container">
         <button id="close-ar" onclick="closeAR()">Cerrar</button>
         <a-scene embedded arjs="sourceType: webcam; trackingMethod: best;" vr-mode-ui="enabled: false" renderer="logarithmicDepthBuffer: true" id="ar-scene" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
-            <a-entity gltf-model="assets/plant.glb" position="0 0 -5" scale="0.2 0.2 0.2"></a-entity>
+            <a-entity id="model" position="0 0 -5" scale="0.2 0.2 0.2"></a-entity>
             <a-entity camera></a-entity>
         </a-scene>
     </div>
 
     <!-- JavaScript to handle AR view -->
     <script>
-        function showAR() {
+        function showAR(modelUrl) {
+            // Load the correct model and display AR
+            document.getElementById('model').setAttribute('gltf-model', modelUrl);
             document.getElementById('menu-container').style.display = 'none';
             document.getElementById('ar-container').style.display = 'block';
         }
 
         function closeAR() {
+            // Hide AR container and go back to the menu
             document.getElementById('ar-container').style.display = 'none';
             document.getElementById('menu-container').style.display = 'block';
         }
     </script>
+
 </body>
 
 </html>
