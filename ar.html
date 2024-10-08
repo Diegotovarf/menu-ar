@@ -57,21 +57,29 @@
     function loadModel(modelName) {
       let modelUrl;
 
+      document.getElementById('model').setAttribute('scale', '1 1 1');
+
       switch (modelName) {
         case 'avo':
           modelUrl = 'https://Diegotovarf.github.io/menu-ar/assets/Avocados.glb';
+          // Change scale for the avocado model only
+          document.getElementById('model').setAttribute('scale', '0.5 0.5 0.5'); // Example scale for avocado
           break;
         case 'double-espresso':
           modelUrl = 'https://Diegotovarf.github.io/menu-ar/assets/croissant.glb';
+          document.getElementById('model').setAttribute('scale', '6 6 6');
           break;
         case 'latte':
           modelUrl = 'https://Diegotovarf.github.io/menu-ar/models/latte.glb';
+          document.getElementById('model').setAttribute('scale', '0.5 0.5 0.5');
           break;
         case 'macchiato':
           modelUrl = 'https://Diegotovarf.github.io/menu-ar/models/macchiato.glb';
+          document.getElementById('model').setAttribute('scale', '0.5 0.5 0.5');
           break;
         case 'lemon-tea':
           modelUrl = 'https://Diegotovarf.github.io/menu-ar/models/lemon-tea.glb';
+          document.getElementById('model').setAttribute('scale', '0.5 0.5 0.5');
           break;
         case 'mango-tea':
           modelUrl = 'https://Diegotovarf.github.io/menu-ar/models/mango-tea.glb';
@@ -96,7 +104,6 @@
       if (modelUrl) {
         const modelEntity = document.getElementById('model');
         modelEntity.setAttribute('gltf-model', modelUrl);
-        modelEntity.setAttribute('scale', '1 1 1'); // Ajusta el tamaño según sea necesario
       }
     }
 
