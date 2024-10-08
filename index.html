@@ -1,11 +1,23 @@
 <!doctype HTML>
-<html>
-<script src='https://aframe.io/releases/0.9.2/aframe.min.js'></script>
-<script src="https://raw.githack.com/jeromeetienne/AR.js/master/aframe/build/aframe-ar.min.js"></script>
-<script src="https://raw.githack.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
-<body style='margin: 0px; overflow: hidden;'>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ver Modelo 3D</title>
+  <script src='https://aframe.io/releases/0.9.2/aframe.min.js'></script>
+  <script src="https://raw.githack.com/jeromeetienne/AR.js/master/aframe/build/aframe-ar.min.js"></script>
+  <script src="https://raw.githack.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+    }
+  </style>
+</head>
+<body>
   <a-scene embedded arjs='sourceType: webcam; debugUIEnabled: false;'>
     <a-marker preset='hiro'>
+      <!-- Cambia la URL del modelo con la ruta correcta a tu archivo GLB -->
       <a-entity gltf-model="url(https://Diegotovarf.github.io/mi-proyecto/menu-ar/assets/plant.GLB)" 
                 scale="0.5 0.5 0.5" 
                 rotation="0 0 0">
