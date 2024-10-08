@@ -1,68 +1,128 @@
-<!doctype HTML>
+<!doctype html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Menú AR</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 20px;
-    }
-    .item {
-      margin-bottom: 15px;
-    }
-    .item h3 {
-      display: inline-block;
-      margin: 0;
-      padding-right: 10px;
-    }
-    button {
-      padding: 10px 20px;
-      margin: 5px;
-      font-size: 16px;
-      cursor: pointer;
-      background-color: #4CAF50;
-      color: white;
-      border: none;
-      border-radius: 5px;
-    }
-    button:hover {
-      background-color: #45a049;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú de Café</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .menu-section {
+            margin: 30px 0;
+        }
+        .menu-title {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+        .card {
+            margin: 15px 0;
+        }
+    </style>
 </head>
 <body>
 
-  <div id="menu">
-    <div class="item">
-      <h3>Platillo 1 - Cubo</h3>
-      <button onclick="verModelo('box')">Ver</button>
-    </div>
-    <div class="item">
-      <h3>Platillo 2 - Esfera</h3>
-      <button onclick="verModelo('sphere')">Ver</button>
-    </div>
-    <div class="item">
-      <h3>Platillo 3 - Cilindro</h3>
-      <button onclick="verModelo('cylinder')">Ver</button>
-    </div>
-    <div class="item">
-      <h3>Platillo 4 - Cono</h3>
-      <button onclick="verModelo('cone')">Ver</button>
-    </div>
-    <div class="item">
-      <h3>Platillo 5 - Toro</h3>
-      <button onclick="verModelo('torus')">Ver</button>
-    </div>
-  </div>
+<div class="container">
+    <div class="menu-title">Menú de Café</div>
 
-  <script>
-    function verModelo(modelName) {
-      window.location.href = `ar.html?model=${modelName}`; // Redirigir al archivo ar.html con el modelo seleccionado
+    <div class="menu-section">
+        <h3>Café</h3>
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Espresso</h5>
+                <p class="card-text">Precio: $5</p>
+                <button class="btn btn-primary" onclick="loadModel('espresso')">Ver</button>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Doble Espresso</h5>
+                <p class="card-text">Precio: $6</p>
+                <button class="btn btn-primary" onclick="loadModel('double-espresso')">Ver</button>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Latte</h5>
+                <p class="card-text">Precio: $5</p>
+                <button class="btn btn-primary" onclick="loadModel('latte')">Ver</button>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Macchiato</h5>
+                <p class="card-text">Precio: $5</p>
+                <button class="btn btn-primary" onclick="loadModel('macchiato')">Ver</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="menu-section">
+        <h3>Té</h3>
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Té de Limón</h5>
+                <p class="card-text">Precio: $4</p>
+                <button class="btn btn-primary" onclick="loadModel('lemon-tea')">Ver</button>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Té de Mango</h5>
+                <p class="card-text">Precio: $5</p>
+                <button class="btn btn-primary" onclick="loadModel('mango-tea')">Ver</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="menu-section">
+        <h3>No-Café</h3>
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Chocolate Caliente</h5>
+                <p class="card-text">Precio: $4</p>
+                <button class="btn btn-primary" onclick="loadModel('hot-chocolate')">Ver</button>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Limonada</h5>
+                <p class="card-text">Precio: $3</p>
+                <button class="btn btn-primary" onclick="loadModel('lemonade')">Ver</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="menu-section">
+        <h3>Postres</h3>
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Waffle de Fresa</h5>
+                <p class="card-text">Precio: $6</p>
+                <button class="btn btn-primary" onclick="loadModel('strawberry-waffle')">Ver</button>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Tarta de Chocolate</h5>
+                <p class="card-text">Precio: $5</p>
+                <button class="btn btn-primary" onclick="loadModel('chocolate-cake')">Ver</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+    function loadModel(modelName) {
+        // Aquí puedes redirigir al usuario a la página de AR
+        window.location.href = `ar.html?model=${modelName}`;
     }
-  </script>
-
+</script>
 </body>
 </html>
