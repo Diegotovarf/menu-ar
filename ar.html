@@ -1,0 +1,83 @@
+<!doctype HTML>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modelo AR</title>
+  <script src='https://aframe.io/releases/0.9.2/aframe.min.js'></script>
+  <script src="https://raw.githack.com/jeromeetienne/AR.js/master/aframe/build/aframe-ar.min.js"></script>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+    }
+    #volver {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      z-index: 1;
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #f44336;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    #volver:hover {
+      background-color: #e53935;
+    }
+  </style>
+</head>
+<body>
+
+  <a-scene embedded arjs='sourceType: webcam; debugUIEnabled: false;'>
+    <a-marker preset='hiro'>
+      <a-entity id="model" scale="1 1 1" rotation="0 0 0"></a-entity>
+    </a-marker>
+    <a-entity camera></a-entity>
+  </a-scene>
+
+  <button id="volver" onclick="volverMenu()">Volver</button>
+
+  <script>
+    // Función para obtener el parámetro del modelo de la URL
+    function getParameterByName(name) {
+      const urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get(name);
+    }
+
+    // Cargar el modelo según el parámetro de la URL
+    function cargarModelo() {
+      const modelName = getParameterByName('model');
+      const modelEntity = document.getElementById('model');
+
+      if (modelName === 'box') {
+        modelEntity.setAttribute('geometry', 'primitive: box');
+        modelEntity.setAttribute('material', 'color: red');
+      } else if (modelName === 'sphere') {
+        modelEntity.setAttribute('geometry', 'primitive: sphere');
+        modelEntity.setAttribute('material', 'color: blue');
+      } else if (modelName === 'cylinder') {
+        modelEntity.setAttribute('geometry', 'primitive: cylinder');
+        modelEntity.setAttribute('material', 'color: green');
+      } else if (modelName === 'cone') {
+        modelEntity.setAttribute('geometry', 'primitive: cone');
+        modelEntity.setAttribute('material', 'color: yellow');
+      } else if (modelName === 'torus') {
+        modelEntity.setAttribute('geometry', 'primitive: torus');
+        modelEntity.setAttribute('material', 'color: purple');
+      }
+    }
+
+    // Cargar el modelo al cargar la página
+    window.onload = cargarModelo;
+
+    // Función para volver al menú
+    function volverMenu() {
+      window.location.href = 'index.html';  // Redirigir al menú
+    }
+  </script>
+
+</body>
+</html>
