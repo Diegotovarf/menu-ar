@@ -3,126 +3,202 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menú de Café</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Menú Internacional</title>
     <style>
         body {
-            background-color: #f8f9fa;
+            background-color: #fdf4e3; /* Light beige for elegance */
+            font-family: 'Georgia', serif;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+        .menu-title {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 30px;
         }
         .menu-section {
             margin: 30px 0;
         }
-        .menu-title {
-            text-align: center;
+        .menu-section h3 {
+            font-size: 1.8rem;
             margin-bottom: 20px;
-            font-size: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-bottom: 1px solid #333;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            font-size: 1.2rem;
+        }
+        .menu-item-price {
             font-weight: bold;
         }
-        .card {
-            margin: 15px 0;
+        .menu-column {
+            width: 45%;
+            display: inline-block;
+            vertical-align: top;
+            margin: 10px;
+        }
+        .menu-section-divider {
+            border-top: 1px solid #ccc;
+            margin: 20px 0;
         }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <div class="menu-title">Menú de Café</div>
+    <div class="menu-title">Menú Internacional</div>
 
     <div class="menu-section">
-        <h3>Café</h3>
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">Espresso</h5>
-                <p class="card-text">Precio: $5</p>
-                <button class="btn btn-primary" onclick="loadModel('avo')">Ver</button>
+        <h3>Starters</h3>
+        <div class="menu-column">
+            <div class="menu-item">
+                <span>Pisces</span>
+                <span class="menu-item-price">$10</span>
+            </div>
+            <div class="menu-item">
+                <span>Aquarius</span>
+                <span class="menu-item-price">$10</span>
+            </div>
+            <div class="menu-item">
+                <span>Ares</span>
+                <span class="menu-item-price">$10</span>
             </div>
         </div>
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">Doble Espresso</h5>
-                <p class="card-text">Precio: $6</p>
-                <button class="btn btn-primary" onclick="loadModel('double-espresso')">Ver</button>
+        <div class="menu-column">
+            <div class="menu-item">
+                <span>Hydra</span>
+                <span class="menu-item-price">$10</span>
             </div>
-        </div>
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">Latte</h5>
-                <p class="card-text">Precio: $5</p>
-                <button class="btn btn-primary" onclick="loadModel('latte')">Ver</button>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">Macchiato</h5>
-                <p class="card-text">Precio: $5</p>
-                <button class="btn btn-primary" onclick="loadModel('macchiato')">Ver</button>
+            <div class="menu-item">
+                <span>Sirius</span>
+                <span class="menu-item-price">$10</span>
             </div>
         </div>
     </div>
 
+    <div class="menu-section-divider"></div>
+
     <div class="menu-section">
-        <h3>Té</h3>
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">Té de Limón</h5>
-                <p class="card-text">Precio: $4</p>
-                <button class="btn btn-primary" onclick="loadModel('lemon-tea')">Ver</button>
+        <h3>Beef</h3>
+        <div class="menu-column">
+            <div class="menu-item">
+                <span>Pisces</span>
+                <span class="menu-item-price">$10</span>
+            </div>
+            <div class="menu-item">
+                <span>Aquarius</span>
+                <span class="menu-item-price">$10</span>
+            </div>
+            <div class="menu-item">
+                <span>Ares</span>
+                <span class="menu-item-price">$10</span>
             </div>
         </div>
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">Té de Mango</h5>
-                <p class="card-text">Precio: $5</p>
-                <button class="btn btn-primary" onclick="loadModel('mango-tea')">Ver</button>
+        <div class="menu-column">
+            <div class="menu-item">
+                <span>Hydra</span>
+                <span class="menu-item-price">$10</span>
+            </div>
+            <div class="menu-item">
+                <span>Sirius</span>
+                <span class="menu-item-price">$10</span>
             </div>
         </div>
     </div>
 
+    <div class="menu-section-divider"></div>
+
     <div class="menu-section">
-        <h3>No-Café</h3>
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">Chocolate Caliente</h5>
-                <p class="card-text">Precio: $4</p>
-                <button class="btn btn-primary" onclick="loadModel('hot-chocolate')">Ver</button>
+        <h3>Chicken</h3>
+        <div class="menu-column">
+            <div class="menu-item">
+                <span>Pisces</span>
+                <span class="menu-item-price">$10</span>
+            </div>
+            <div class="menu-item">
+                <span>Aquarius</span>
+                <span class="menu-item-price">$10</span>
+            </div>
+            <div class="menu-item">
+                <span>Ares</span>
+                <span class="menu-item-price">$10</span>
             </div>
         </div>
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">Limonada</h5>
-                <p class="card-text">Precio: $3</p>
-                <button class="btn btn-primary" onclick="loadModel('lemonade')">Ver</button>
+        <div class="menu-column">
+            <div class="menu-item">
+                <span>Hydra</span>
+                <span class="menu-item-price">$10</span>
+            </div>
+            <div class="menu-item">
+                <span>Sirius</span>
+                <span class="menu-item-price">$10</span>
             </div>
         </div>
     </div>
 
+    <div class="menu-section-divider"></div>
+
     <div class="menu-section">
-        <h3>Postres</h3>
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">Waffle de Fresa</h5>
-                <p class="card-text">Precio: $6</p>
-                <button class="btn btn-primary" onclick="loadModel('strawberry-waffle')">Ver</button>
+        <h3>Drinks</h3>
+        <div class="menu-column">
+            <div class="menu-item">
+                <span>Pisces</span>
+                <span class="menu-item-price">$10</span>
+            </div>
+            <div class="menu-item">
+                <span>Aquarius</span>
+                <span class="menu-item-price">$10</span>
             </div>
         </div>
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">Tarta de Chocolate</h5>
-                <p class="card-text">Precio: $5</p>
-                <button class="btn btn-primary" onclick="loadModel('chocolate-cake')">Ver</button>
+        <div class="menu-column">
+            <div class="menu-item">
+                <span>Ares</span>
+                <span class="menu-item-price">$10</span>
+            </div>
+            <div class="menu-item">
+                <span>Hydra</span>
+                <span class="menu-item-price">$10</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="menu-section-divider"></div>
+
+    <div class="menu-section">
+        <h3>Wines</h3>
+        <div class="menu-column">
+            <div class="menu-item">
+                <span>Pisces</span>
+                <span class="menu-item-price">$10</span>
+            </div>
+            <div class="menu-item">
+                <span>Aquarius</span>
+                <span class="menu-item-price">$10</span>
+            </div>
+        </div>
+        <div class="menu-column">
+            <div class="menu-item">
+                <span>Ares</span>
+                <span class="menu-item-price">$10</span>
+            </div>
+            <div class="menu-item">
+                <span>Hydra</span>
+                <span class="menu-item-price">$10</span>
             </div>
         </div>
     </div>
 </div>
 
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<script>
-    function loadModel(modelName) {
-        // Aquí puedes redirigir al usuario a la página de AR
-        window.location.href = `ar.html?model=${modelName}`;
-    }
-</script>
 </body>
 </html>
