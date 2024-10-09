@@ -41,70 +41,37 @@
   <button id="volver" onclick="volverMenu()">Volver</button>
 
   <script>
-    // Función para cargar el modelo según el parámetro de la URL
-    function cargarModelo() {
-      const modelName = getParameterByName('model');
-      loadModel(modelName);
-    }
-
     // Función para obtener el parámetro del modelo de la URL
     function getParameterByName(name) {
       const urlParams = new URLSearchParams(window.location.search);
       return urlParams.get(name);
     }
 
-    // Cargar el modelo según el nombre proporcionado
-    function loadModel(modelName) {
-      let modelUrl;
-
-      document.getElementById('model').setAttribute('scale', '1 1 1');
-
-      switch (modelName) {
-        case 'avo':
-          modelUrl = 'https://Diegotovarf.github.io/menu-ar/assets/Avocados.glb';
-          // Change scale for the avocado model only
-          document.getElementById('model').setAttribute('scale', '0.5 0.5 0.5'); // Example scale for avocado
-          break;
-        case 'double-espresso':
-          modelUrl = 'https://Diegotovarf.github.io/menu-ar/assets/croissant.glb';
-          document.getElementById('model').setAttribute('scale', '6 6 6');
-          break;
-        case 'latte':
-          modelUrl = 'https://Diegotovarf.github.io/menu-ar/models/latte.glb';
-          document.getElementById('model').setAttribute('scale', '0.5 0.5 0.5');
-          break;
-        case 'macchiato':
-          modelUrl = 'https://Diegotovarf.github.io/menu-ar/models/macchiato.glb';
-          document.getElementById('model').setAttribute('scale', '0.5 0.5 0.5');
-          break;
-        case 'lemon-tea':
-          modelUrl = 'https://Diegotovarf.github.io/menu-ar/models/lemon-tea.glb';
-          document.getElementById('model').setAttribute('scale', '0.5 0.5 0.5');
-          break;
-        case 'mango-tea':
-          modelUrl = 'https://Diegotovarf.github.io/menu-ar/models/mango-tea.glb';
-          break;
-        case 'hot-chocolate':
-          modelUrl = 'https://Diegotovarf.github.io/menu-ar/models/hot-chocolate.glb';
-          break;
-        case 'lemonade':
-          modelUrl = 'https://Diegotovarf.github.io/menu-ar/models/lemonade.glb';
-          break;
-        case 'strawberry-waffle':
-          modelUrl = 'https://Diegotovarf.github.io/menu-ar/models/strawberry-waffle.glb';
-          break;
-        case 'chocolate-cake':
-          modelUrl = 'https://Diegotovarf.github.io/menu-ar/models/chocolate-cake.glb';
-          break;
-        default:
-          modelUrl = '';
-      }
-
-      // Establece la URL del modelo en el elemento 3D
-      if (modelUrl) {
-        const modelEntity = document.getElementById('model');
-        modelEntity.setAttribute('gltf-model', modelUrl);
-      }
+    // Cargar el modelo según el parámetro de la URL
+    function loadModel(modelName){
+        let modelUrl;
+        
+        // Cambia las URLs según la estructura de tu proyecto y los nombres de los archivos
+        switch(modelName) {
+            case 'avo':
+                modelUrl = 'https://Diegotovarf.github.io/menu-ar/assets/Avocados.glb';
+                // Change scale for the avocado model only
+                document.getElementById('model').setAttribute('scale', '0.5 0.5 0.5'); // Example scale for avocado
+                break;
+            case 'double-espresso':
+                modelUrl = 'https://Diegotovarf.github.io/menu-ar/assets/croissant.glb';
+                break;
+            case 'latte':
+                modelUrl = 'https://Diegotovarf.github.io/menu-ar/models/latte.glb';
+                document.getElementById('model').setAttribute('scale', '1 1 1'); // Keep the original size for latte
+                break;
+            // Add cases for other models as needed
+            default:
+                modelUrl = '';
+        }
+        if (modelUrl) {
+            document.getElementById('model').setAttribute('gltf-model', modelUrl);
+        }
     }
 
     // Cargar el modelo al cargar la página
