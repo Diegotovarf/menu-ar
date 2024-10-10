@@ -8,152 +8,112 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 
     <style>
-        
+        /* Encabezado */
         .header {
-            background-color: #000000; /* Color de fondo del encabezado */
-            color: white; /* Color de texto del encabezado */
-            text-align: center; /* Centrar texto */
-            padding: 2px; /* Espaciado interno */
-            font-size: 2rem; /* Tamaño de fuente del título */
-            position: fixed; /* Mantener el título fijo en la parte superior */
-            width: 100%; /* Asegurar que ocupe todo el ancho */
-            top: 0; /* Posicionar en la parte superior */
-            left: 0; /* Alinear a la izquierda */
-            z-index: 1000; /* Asegurarse de que esté encima de otros elementos */
+            background-color: #000000;
+            color: rgb(0, 0, 0);
+            text-align: center;
+            padding: 10px;
+            font-size: 2rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
         }
-        
+
+        /* Ajuste del cuerpo y contenedores */
         body {
-            background-color:black ;
+            background-color: black;
             overflow-x: hidden;
+            margin: 0;
+            padding: 0;
         }
+
+        .container {
+            display: flex;
+            flex-direction: row;
+            height: 100vh;
+            margin-top: 80px; /* Para compensar el espacio del header */
+            background-color: #000000;
+        }
+
+        .left-panel, .right-panel {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            color: rgb(0, 0, 0);
+        }
+
         .menu-section {
-            margin: 10px 0;
+            text-align: center;
         }
+
         .menu-title {
             color: #737373;
             text-align: center;
-            margin-top: 30px;
-            margin-bottom: 10px;
-            font-size: 4rem;
+            font-size: 3rem;
             font-weight: bold;
             font-family: 'Playfair Display';
-            position: relative;
-            letter-spacing: 3px;
-
+            margin-top: 20px;
         }
 
         .menu-subtitle {
             color: white;
-            text-align: center;
-            font-size: .8rem; /* Tamaño más grande para el subtítulo */
-            font-family: 'Playfair Display'; /* Lobster para el subtítulo */
-            margin-top: -22px; /* Espacio debajo del subtítulo */
-            margin-bottom: 0px;
-            letter-spacing: 3px;
-        }
-            
-        .menu-title::after {
-    color: white;
-    display: block;
-    width: 55%; /* Ancho de la línea, puedes ajustarlo */
-    height: .04cm; /* Grosor de la línea */
-    background-color: #ffffff; /* Color de la línea */
-    margin: 5px auto 0; /* Centra la línea y ajusta el margen */
-}
-       
-        .card {
-        
-            background: none;
-            color: rgb(139, 139, 139);
-            
+            font-size: 1rem;
+            margin-top: -10px;
+            letter-spacing: 2px;
+           
         }
 
-        .container-sub-food1{
-     background-color: #737373;
-     max-width: 100x; /* Ancho máximo del contenedor (no crecerá más de 1200px) */
-     min-width: 10px; /* Ancho mínimo del contenedor (no se reducirá a menos de 300px) */
-     width:173px;
-     height: 10px;
-     margin: 10 auto; /* Centra el contenedor horizontalmente */
-     padding: 10px; /*S EspacioS interno (padding) del contenedor */
-     border: 1px solid #000; /* Borde opcional para visualizar el contenedor */
-     margin-top: 100px;
-
-     display: flex;
-     justify-content: left; /* Centra horizontalmente */
-     align-items: center;
-     
-
-
+        /* Estilos de los contenedores pequeños */
+        .container-sub-food {
+            background-color: #737373;
+            width: 200px;
+            height: 40px;
+            display: flex;
+            justify-content: left;
+            align-items: center;
+            margin: 20px auto;
         }
 
+        .tittle-sub {
+            color: #ffffff;
+            font-family: "Playfair Display";
+            font-size: 1rem;
+            margin: 0;
+            letter-spacing: 2px;
+        }
 
-        .container-sub-food{
-     background-color: #737373;
-     max-width: 100x; /* Ancho máximo del contenedor (no crecerá más de 1200px) */
-     min-width: 10px; /* Ancho mínimo del contenedor (no se reducirá a menos de 300px) */
-     width:173px;
-     height: 10px;
-     margin: 10 auto; /* Centra el contenedor horizontalmente */
-     padding: 10px; /*S EspacioS interno (padding) del contenedor */
-     border: 1px solid #000; /* Borde opcional para visualizar el contenedor */
-     margin-top: -150px;
+        /* Texto de la tarjeta */
+        .card-text {
+            font-family: "Playfair Display";
+            color: #ffffff;
+            font-size: 1rem;
+            margin-top: 10px;
+        }
 
-     display: flex;
-     justify-content: left; /* Centra horizontalmente */
-     align-items: center;
-     
+        .boton-ver {
+            background-color: rgb(255, 255, 255);
+            border: none;
+            padding: 5px 10px;
+           color: rgb(0, 0, 0);
+        }
+
+        .card-body{
+            text-align: left;
+            background-color: #000000;
+            color:#000000
+        }
+
+        .card{
+            background-color: #000000;
+            margin-top: -120px;
 
 
         }
-
-
-        .container {
-            display: flex; /* Usar Flexbox para dividir el espacio */
-            height: 100vh; /* Altura completa de la ventana del navegador */
-        }
-
-        .left-panel {
-            flex: 1; /* Ocupa la mitad izquierda */
-            background-color: #000000; /* Color de fondo de la sección izquierda */
-            display: flex; /* Para centrar el contenido */
-            justify-content: center; /* Centrado horizontal */
-            align-items: center; /* Centrado vertical */
-            font-size: 2rem; /* Tamaño de la fuente */
-        }
-
-        .right-panel {
-            flex: 1; /* Ocupa la mitad derecha */
-            background-color: #000000; /* Color de fondo de la sección derecha */
-            display: flex; /* Para centrar el contenido */
-            justify-content: center; /* Centrado horizontal */
-            align-items: center; /* Centrado vertical */
-            font-size: 2rem; /* Tamaño de la fuente */
-        }
-
-        .tittle-sub{
-        color:#ffffff;
-        font-family: "Playfair Display";
-        margin: 0; /* Elimina márgenes innecesarios */
-        font-size: .8rem; /* Ajusta el tamaño de la fuente */
-        letter-spacing: 3px;
-      
-        }
-
-        .card-text{
-font-family: "Playfair Display";
-color: #ffffff;
-font-size: .8rem;
-margin-top: 5px;
-        }
-
-        .boton-ver{
-            background-color: aliceblue;
-
-        }
-
-        
-
     </style>
 </head>
 <body>
@@ -162,47 +122,53 @@ margin-top: 5px;
     <div class="menu-title">Menú</div>
     <div class="menu-subtitle">Comida internacional</div>
 </div>
+
 <div class="container">
-    <div class="right-panel">
-        <div class="menu-section">
-            <div class="card">
-                <div class="card-body">
-                    <div class="container-sub-food"><h5 class="tittle-sub">Entradas</h5></div>
-                    <p class="card-text">Frutas&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10$&nbsp;&nbsp;<button class="boton-ver" onclick="loadModel('avo')">Ver</button></p>
-                    <p class="card-text">Frutas&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10$&nbsp;&nbsp;<button class="boton-ver" onclick="loadModel('avo')">Ver</button></p>
-                    <p class="card-text">Frutas&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10$&nbsp;&nbsp;<button class="boton-ver" onclick="loadModel('avo')">Ver</button></p>
-                    <p class="card-text">Frutas&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10$&nbsp;&nbsp;<button class="boton-ver" onclick="loadModel('avo')">Ver</button></p>                   
-                </div>
-            </div>      
-        </div>
-        
-    </div>
     <div class="left-panel">
         <div class="menu-section">
             <div class="card">
                 <div class="card-body">
-                    <div class="container-sub-food"><h5 class="tittle-sub">Bebidas</h5></div>
-                    <p class="card-text">Frutas&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10$&nbsp;&nbsp;<button class="boton-ver" onclick="loadModel('avo')">Ver</button></p>
-                    <p class="card-text">Frutas&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10$&nbsp;&nbsp;<button class="boton-ver" onclick="loadModel('avo')">Ver</button></p>
-                    <p class="card-text">Frutas&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10$&nbsp;&nbsp;<button class="boton-ver" onclick="loadModel('avo')">Ver</button></p>
-                    <p class="card-text">Frutas&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10$&nbsp;&nbsp;<button class="boton-ver" onclick="loadModel('avo')">Ver</button></p>
-            </div>      
+                    <div class="container-sub-food">
+                        <h5 class="tittle-sub">Entradas</h5>
+                    </div>
+                    <p class="card-text">Frutas&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10$&nbsp;&nbsp;&nbsp;&nbsp;
+                        <button class="boton-ver" onclick="loadModel('avo')">Ver</button>
+                    </p>
+                    <p class="card-text">Frutas&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10$&nbsp;&nbsp;&nbsp;&nbsp;
+                        <button class="boton-ver" onclick="loadModel('avo')">Ver</button>
+                    </p>
+                    <p class="card-text">Frutas&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10$&nbsp;&nbsp;&nbsp;&nbsp;
+                        <button class="boton-ver" onclick="loadModel('avo')">Ver</button>
+                    </p>
+                </div>
+            </div>
         </div>
     </div>
-    
 
-
-
-    
-
+    <div class="right-panel">
+        <div class="menu-section">
+            <div class="card">
+                <div class="card-body">
+                    <div class="container-sub-food">
+                        <h5 class="tittle-sub">Bebidas</h5>
+                    </div>
+                    <p class="card-text">Frutas&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10$&nbsp;&nbsp;&nbsp;&nbsp;
+                        <button class="boton-ver" onclick="loadModel('avo')">Ver</button>
+                    </p>
+                    <p class="card-text">Frutas&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10$&nbsp;&nbsp;&nbsp;&nbsp;
+                        <button class="boton-ver" onclick="loadModel('avo')">Ver</button>
+                    </p>
+                    <p class="card-text">Frutas&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10$&nbsp;&nbsp;&nbsp;&nbsp;
+                        <button class="boton-ver" onclick="loadModel('avo')">Ver</button>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script>
     function loadModel(modelName) {
-        // Aquí puedes redirigir al usuario a la página de AR
         window.location.href = `ar.html?model=${modelName}`;
     }
 </script>
