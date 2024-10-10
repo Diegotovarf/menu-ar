@@ -71,12 +71,17 @@
      background-color: #737373;
      max-width: 100x; /* Ancho máximo del contenedor (no crecerá más de 1200px) */
      min-width: 10px; /* Ancho mínimo del contenedor (no se reducirá a menos de 300px) */
-     width:110px;
+     width:180px;
      height: 10px;
      margin: 10 auto; /* Centra el contenedor horizontalmente */
      padding: 10px; /*S EspacioS interno (padding) del contenedor */
      border: 1px solid #000; /* Borde opcional para visualizar el contenedor */
-     margin-top: 50px;
+     margin-top: -100px;
+
+     display: flex;
+     justify-content: left; /* Centra horizontalmente */
+     align-items: center;
+     
 
 
         }
@@ -104,7 +109,29 @@
             align-items: center; /* Centrado vertical */
             font-size: 2rem; /* Tamaño de la fuente */
         }
-       
+
+        .tittle-sub{
+        color:#ffffff;
+        font-family: "Playfair Display";
+        margin: 0; /* Elimina márgenes innecesarios */
+        font-size: .8rem; /* Ajusta el tamaño de la fuente */
+        letter-spacing: 3px;
+      
+        }
+
+        .card-text{
+font-family: "Playfair Display";
+color: #ffffff;
+font-size: .8rem;
+margin-top: 5px;
+        }
+
+        .boton-ver{
+            background-color: aliceblue;
+
+        }
+
+        
 
     </style>
 </head>
@@ -114,32 +141,37 @@
     <div class="menu-title">Menú</div>
     <div class="menu-subtitle">Comida internacional</div>
 </div>
-
 <div class="container">
     <div class="right-panel">
         <div class="menu-section">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">Espresso</h5>
-                    <p class="card-text">Precio: $5</p>
-                    <button class="btn btn-primary" onclick="loadModel('avo')">Ver</button>
+                    <div class="container-sub-food"><h5 class="tittle-sub">Entradas</h5></div>
+                    <p class="card-text">Frutas&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10$&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button class="boton-ver" onclick="loadModel('avo')">Ver</button></p>
+                    <p class="card-text">Frutas&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10$&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button class="boton-ver" onclick="loadModel('avo')">Ver</button></p>
+                    <p class="card-text">Frutas&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10$&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button class="boton-ver" onclick="loadModel('avo')">Ver</button></p>
+                    <p class="card-text">Frutas&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10$&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button class="boton-ver" onclick="loadModel('avo')">Ver</button></p>                   
                 </div>
             </div>      
         </div>
+        
     </div>
     <div class="left-panel">
         <div class="menu-section">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">Espresso</h5>
-                    <p class="card-text">Precio: $5</p>
-                    <button class="btn btn-primary" onclick="loadModel('avo')">Ver</button>
-                </div>
+                    <div class="container-sub-food"><h5 class="tittle-sub">Bebidas</h5></div>
+                    <p class="card-text">Frutas&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10$&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button class="boton-ver" onclick="loadModel('avo')">Ver</button></p>
+                    <p class="card-text">Frutas&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10$&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button class="boton-ver" onclick="loadModel('avo')">Ver</button></p>
+                    <p class="card-text">Frutas&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10$&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button class="boton-ver" onclick="loadModel('avo')">Ver</button></p>
+                    <p class="card-text">Frutas&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10$&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button class="boton-ver" onclick="loadModel('avo')">Ver</button></p>
             </div>      
         </div>
     </div>
+    
 
->
+
+
     
 
 </div>
